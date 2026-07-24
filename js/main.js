@@ -6,9 +6,13 @@
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const isMobile = () => window.matchMedia("(max-width: 767px)").matches;
 
+  let headerScrolled = false;
   const setHeaderState = () => {
     if (!header) return;
-    header.classList.toggle("is-scrolled", window.scrollY > 12);
+    const next = window.scrollY > 12;
+    if (next === headerScrolled) return;
+    headerScrolled = next;
+    header.classList.toggle("is-scrolled", next);
   };
 
   const closeNav = () => {
@@ -31,8 +35,20 @@
     });
   }
 
-  setHeaderState();
-  window.addEventListener("scroll", setHeaderState, { passive: true });
+  requestAnimationFrame(setHeaderState);
+  let headerTick = false;
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (headerTick) return;
+      headerTick = true;
+      requestAnimationFrame(() => {
+        setHeaderState();
+        headerTick = false;
+      });
+    },
+    { passive: true }
+  );
 
   // Reveal on scroll
   const reveals = document.querySelectorAll(".reveal");

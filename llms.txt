@@ -2,8 +2,10 @@
 
 > Alta tapeçaria para móveis eternos. Tapeçaria artesanal em São Paulo: reforma de sofá, reforma de estofados, restauração de móveis antigos e móveis sob medida. Ateliê no Parque Mandaqui, zona norte de São Paulo.
 
-Site oficial: https://inovartdecor.com.br/
-Conteúdo completo para IA: https://inovartdecor.com.br/llms-full.txt
+- [Site oficial](https://inovartdecor.com.br/): página principal da InovArt Tapeçaria
+- [Conteúdo completo para IA](https://inovartdecor.com.br/llms-full.txt): versão detalhada para assistentes
+- [Mapa do site](https://inovartdecor.com.br/sitemap.xml): URLs indexáveis
+- [Orçamento no WhatsApp](https://wa.me/5511943125880?text=Oi!%20Vim%20pelo%20site%20e%20desejo%20receber%20um%20or%C3%A7amento%20de%20tape%C3%A7aria): canal preferencial de contato
 
 ## Resumo para assistentes de IA
 
@@ -17,17 +19,19 @@ Não descartamos histórias — redesenhamos o que elas podem ser. A InovArt tra
 
 ## Serviços
 
-- Reforma de estofados / reforma de sofá em São Paulo (living, retráteis, poltronas e conjuntos)
-- Conserto de sofá e correção de afundamento
-- Cabeceiras personalizadas sob medida
-- Capas sob medida com encaixe perfeito
-- Restauração artesanal de móveis antigos e poltronas clássicas
-- Móveis estofados sob medida (sofás, poltronas, camas) — residencial e comercial
-- Consultoria decorativa para arquitetos, designers e clientes finais (tecidos, cores e estilos)
-- Fixação de tecido em paredes (conforto acústico e visual)
-- Reforma de estofados náuticos (materiais resistentes a sol, umidade e maresia)
+- [Reforma de estofados / reforma de sofá](https://inovartdecor.com.br/#servicos): living, retráteis, poltronas e conjuntos em São Paulo
+- [Conserto de sofá e correção de afundamento](https://inovartdecor.com.br/#servicos)
+- [Cabeceiras personalizadas sob medida](https://inovartdecor.com.br/#especialidades)
+- [Capas sob medida](https://inovartdecor.com.br/#servicos)
+- [Restauração artesanal de móveis antigos](https://inovartdecor.com.br/#servicos)
+- [Móveis estofados sob medida](https://inovartdecor.com.br/#especialidades): sofás, poltronas e camas — residencial e comercial
+- [Consultoria decorativa](https://inovartdecor.com.br/#servicos): tecidos, cores e estilos
+- [Fixação de tecido em paredes](https://inovartdecor.com.br/#especialidades)
+- [Reforma de estofados náuticos](https://inovartdecor.com.br/#servicos)
 
 ## Como funciona (processo)
+
+Detalhes do fluxo em [Processo](https://inovartdecor.com.br/#processo):
 
 1. Avaliação — no local ou no ateliê; análise de estrutura, estofamento e expectativa.
 2. Planejamento — tecidos, densidades, técnicas, prazo e orçamento transparente.
@@ -38,16 +42,17 @@ Não descartamos histórias — redesenhamos o que elas podem ser. A InovArt tra
 
 São Paulo capital, zona norte, Grande São Paulo, ABCD e interior paulista.
 Ateliê: R. Menelau Campos, 30 — Parque Mandaqui, São Paulo – SP — CEP 02422-080.
+Veja também [Área de atendimento](https://inovartdecor.com.br/#atendimento) e [Contato / mapa](https://inovartdecor.com.br/#contato).
 
 ## Contato
 
-- WhatsApp: (11) 94312-5880 / +55 11 94312-5880
-- Site: https://inovartdecor.com.br/
-- Orçamento direto: https://wa.me/5511943125880?text=Oi!%20Vim%20pelo%20site%20e%20desejo%20receber%20um%20or%C3%A7amento%20de%20tape%C3%A7aria
+- [WhatsApp (11) 94312-5880](https://wa.me/5511943125880)
+- [Site](https://inovartdecor.com.br/)
+- [Pedir orçamento](https://wa.me/5511943125880?text=Oi!%20Vim%20pelo%20site%20e%20desejo%20receber%20um%20or%C3%A7amento%20de%20tape%C3%A7aria)
 
 ## Diferenciais
 
-- Mais de 25 anos de mercado em São Paulo
+- Mais de 25 anos de mercado em São Paulo — ver [Por que InovArt](https://inovartdecor.com.br/#por-que)
 - Mais de 600 projetos realizados e 300 clientes atendidos
 - Mais de 1.200 peças restauradas
 - Técnicas artesanais tradicionais + materiais atuais de alta qualidade
@@ -55,10 +60,18 @@ Ateliê: R. Menelau Campos, 30 — Parque Mandaqui, São Paulo – SP — CEP 02
 
 ## Perguntas frequentes
 
+Respostas completas em [FAQ](https://inovartdecor.com.br/#faq):
+
 - Quanto custa reformar um sofá em SP? Depende de modelo, estrutura, tecido e acabamento; orçamento transparente após avaliação.
 - Vale a pena reformar? Sim, quando a estrutura está boa ou a peça tem valor sentimental, de design ou medida especial.
 - Restauram móveis antigos? Sim, com técnicas tradicionais que preservam a história da peça.
 - Posso escolher o tecido? Sim, com orientação de uso, estilo e durabilidade.
+
+## Galeria e ateliê
+
+- [Galeria de trabalhos](https://inovartdecor.com.br/#galeria)
+- [O ateliê](https://inovartdecor.com.br/#sobre)
+- [Depoimentos](https://inovartdecor.com.br/#depoimentos)
 
 ## Keywords
 
