@@ -1,6 +1,6 @@
 # InovArt — Tapeçaria e Decorações
 
-> Alta tapeçaria para móveis eternos. Tapeçaria artesanal em São Paulo: reforma de sofá, reforma de estofados, restauração de móveis antigos e móveis sob medida. Ateliê no Parque Mandaqui, zona norte de São Paulo.
+> Ateliê de tapeçaria premium em São Paulo: reforma de mobiliário de alto padrão, restauração de luxo e camas/sofás sob encomenda. Parque Mandaqui, zona norte.
 
 - [Site oficial](https://inovartdecor.com.br/): página principal da InovArt Tapeçaria
 - [Conteúdo completo para IA](https://inovartdecor.com.br/llms-full.txt): versão detalhada para assistentes

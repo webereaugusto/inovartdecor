@@ -1,12 +1,12 @@
 {
   "name": "InovArt Tapeçaria e Decorações",
   "short_name": "InovArt",
-  "description": "Tapeçaria artesanal em São Paulo: reforma de sofá, estofados, restauração e móveis sob medida.",
+  "description": "Ateliê de tapeçaria premium em São Paulo: reforma de mobiliário de alto padrão, restauração e camas/sofás sob encomenda.",
   "lang": "pt-BR",
   "start_url": "/",
   "display": "browser",
-  "background_color": "#0B0B0C",
-  "theme_color": "#0B0B0C",
+  "background_color": "#e8dbcf",
+  "theme_color": "#751717",
   "icons": [
     {
       "src": "assets/logo-brand.png",
