@@ -175,16 +175,15 @@
     mapIo.observe(mapFrame.parentElement || mapFrame);
   }
 
-  // Soft parallax on hero visual (desktop only)
+  // Soft parallax on hero visual (desktop only) — uses scrollY to avoid forced reflow
   const parallaxEl = document.querySelector("[data-parallax]");
-  if (parallaxEl && !reduceMotion) {
+  if (parallaxEl && !reduceMotion && !isMobile()) {
     let ticking = false;
     const onScroll = () => {
-      if (ticking || isMobile()) return;
+      if (ticking) return;
       ticking = true;
       requestAnimationFrame(() => {
-        const rect = parallaxEl.getBoundingClientRect();
-        const offset = Math.max(-30, Math.min(30, (window.innerHeight / 2 - rect.top) * 0.04));
+        const offset = Math.max(-24, Math.min(24, window.scrollY * 0.06));
         parallaxEl.style.transform = `translate3d(0, ${offset}px, 0)`;
         ticking = false;
       });
