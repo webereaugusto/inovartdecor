@@ -313,8 +313,8 @@ h3 { font-size: clamp(1.2rem, 2.2vw, 1.5rem); }
 }
 .hero h1 {
   color: #fff;
-  margin: 0 0 1.5rem;
-  font-size: clamp(2.9rem, 9.5vw, 6.2rem);
+  margin: 0 0 0.35rem;
+  font-size: clamp(2.2rem, 7vw, 4.6rem);
   font-weight: 500;
   line-height: 1.02;
   letter-spacing: -0.03em;
@@ -333,6 +333,18 @@ h3 { font-size: clamp(1.2rem, 2.2vw, 1.5rem); }
   line-height: 1.7;
   max-width: 46ch;
   margin-bottom: 2.25rem;
+}
+.hero-tagline {
+  color: var(--terra);
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2.4vw, 1.55rem);
+  font-style: italic;
+  font-weight: 500;
+  margin: -0.75rem 0 1.1rem;
+}
+.hero-line-sub {
+  font-size: 0.72em;
+  letter-spacing: -0.01em;
 }
 .hero-actions {
   display: flex;
@@ -669,6 +681,19 @@ h3 { font-size: clamp(1.2rem, 2.2vw, 1.5rem); }
   color: rgba(239, 236, 228, 0.45) !important;
   margin: 0 !important;
 }
+.service-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  margin: 0.85rem 0 0 !important;
+}
+.service-links a {
+  color: var(--terra);
+  font-size: 0.88rem;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.service-links a:hover { color: #fff; }
 
 /* Anatomy */
 .anatomy-grid {
@@ -969,6 +994,20 @@ h3 { font-size: clamp(1.2rem, 2.2vw, 1.5rem); }
 }
 .coverage-card h3 { color: #fff; }
 .coverage-card p { color: rgba(239, 236, 228, 0.7); }
+.coverage-card strong { color: rgba(239, 236, 228, 0.92); }
+.coverage-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  margin: 0.5rem 0 1rem !important;
+}
+.coverage-links a,
+.coverage-more a {
+  color: var(--terra);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.coverage-more { margin-top: 1.25rem; }
 
 /* FAQ */
 .faq-list { display: grid; gap: 0.65rem; }
@@ -1284,7 +1323,7 @@ h3 { font-size: clamp(1.2rem, 2.2vw, 1.5rem); }
   }
   .faq-layout .section-head { margin-bottom: 0; position: sticky; top: calc(var(--header-h) + 1.5rem); }
 
-  .footer-grid { grid-template-columns: 1.4fr 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1.4fr 1fr 1fr 1fr; }
 }
 
 @media (min-width: 1024px) {
@@ -1308,5 +1347,78 @@ h3 { font-size: clamp(1.2rem, 2.2vw, 1.5rem); }
     padding: 0;
     justify-content: center;
     border-radius: 50%;
+  }
+}
+
+/* ========== Páginas de serviço (SEO enxuto) ========== */
+.service-hero {
+  padding: calc(var(--header-h) + 3rem) 0 2.5rem;
+  background: var(--ink);
+  color: #fff;
+}
+.service-hero .eyebrow { color: var(--terra); }
+.service-hero h1 {
+  color: #fff;
+  font-size: clamp(1.85rem, 4.5vw, 2.75rem);
+  max-width: 22ch;
+  margin: 0.5rem 0 1rem;
+}
+.service-hero .lead {
+  color: rgba(239, 236, 228, 0.7);
+  max-width: 52ch;
+  margin: 0;
+  line-height: 1.65;
+}
+.service-main {
+  padding: 3rem 0 4rem;
+}
+.service-layout {
+  display: grid;
+  gap: 2rem;
+}
+.service-layout .service-copy p {
+  max-width: 62ch;
+  line-height: 1.7;
+  margin: 0 0 1rem;
+}
+.service-layout .service-media {
+  margin: 0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.service-layout .service-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+.service-faq {
+  margin-top: 2.5rem;
+  display: grid;
+  gap: 0.65rem;
+}
+.service-faq h2 {
+  font-size: 1.35rem;
+  margin: 0 0 0.75rem;
+}
+.service-cta-box {
+  margin-top: 2.5rem;
+  padding: 1.75rem;
+  background: var(--ink);
+  color: #fff;
+  border-radius: 4px;
+}
+.service-cta-box p { color: rgba(239, 236, 228, 0.7); margin: 0 0 1.25rem; }
+.service-related {
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+}
+.service-related a { color: var(--terra); }
+@media (min-width: 800px) {
+  .service-layout {
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: start;
+    gap: 2.5rem;
   }
 }

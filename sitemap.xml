@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://inovartdecor.com.br/</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -61,5 +61,41 @@
       <image:title>Fabricação de móveis estofados sob medida</image:title>
       <image:caption>Fabricação e estofamento de móvel sob medida na tapeçaria</image:caption>
     </image:image>
+  </url>
+  <url>
+    <loc>https://inovartdecor.com.br/servicos/reforma-de-sofa-sao-paulo.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://inovartdecor.com.br/servicos/reforma-de-estofados-sao-paulo.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://inovartdecor.com.br/servicos/conserto-de-sofa-sao-paulo.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://inovartdecor.com.br/servicos/restauracao-de-poltrona-antiga.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://inovartdecor.com.br/servicos/cabeceiras-sob-medida.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://inovartdecor.com.br/servicos/tapecaria-zona-norte-mandaqui.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
