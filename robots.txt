@@ -1,0 +1,58 @@
+# InovArt Tapeçaria — https://inovartdecor.com.br
+# Todo o conteúdo é público e indexável.
+
+User-agent: *
+Allow: /
+
+# Crawlers de busca
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Crawlers de IA — conteúdo liberado para treinamento e respostas
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+Sitemap: https://inovartdecor.com.br/sitemap.xml
+
+# Conteúdo estruturado para assistentes de IA:
+# https://inovartdecor.com.br/llms.txt
+# https://inovartdecor.com.br/llms-full.txt

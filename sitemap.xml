@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://inovartdecor.com.br/</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://inovartdecor.com.br/assets/galeria-poltrona.jpg</image:loc>
+      <image:title>Tapeçaria em São Paulo — poltrona restaurada pela InovArt</image:title>
+      <image:caption>Poltrona restaurada com tapeçaria artesanal em São Paulo</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://inovartdecor.com.br/assets/hero-sala.jpg</image:loc>
+      <image:title>Reforma de estofados em São Paulo — ambiente final</image:title>
+      <image:caption>Sala com sofás de couro e poltrona reformados pela InovArt</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://inovartdecor.com.br/assets/hero-artesao.jpg</image:loc>
+      <image:title>Tapeceiro em São Paulo — ofício artesanal</image:title>
+      <image:caption>Tapeceiro trabalhando com couro no ateliê InovArt, Parque Mandaqui</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://inovartdecor.com.br/assets/esp-estofados.jpg</image:loc>
+      <image:title>Reforma de sofá SP — tecido premium</image:title>
+      <image:caption>Sofá reformado com tecido premium em São Paulo</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://inovartdecor.com.br/assets/esp-parede.jpg</image:loc>
+      <image:title>Texturas de tecido para tapeçaria — São Paulo</image:title>
+      <image:caption>Textura de tecido para revestimento e acabamento em tapeçaria</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://inovartdecor.com.br/assets/esp-cama.jpg</image:loc>
+      <image:title>Estofados sob medida — InovArt</image:title>
+      <image:caption>Ambiente amplo com estofados sob medida em projeto de arquitetura</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://inovartdecor.com.br/assets/mat-tecidos.jpg</image:loc>
+      <image:title>Tecidos para reforma de estofados</image:title>
+      <image:caption>Cartela de amostras de tecidos para reforma de estofados</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://inovartdecor.com.br/assets/mat-couro.jpg</image:loc>
+      <image:title>Couro para tapeçaria de alto padrão</image:title>
+      <image:caption>Couro legítimo marfim para tapeçaria de alto padrão</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://inovartdecor.com.br/assets/processo-execucao.jpg</image:loc>
+      <image:title>Execução artesanal de tapeçaria no ateliê</image:title>
+      <image:caption>Execução artesanal de tapeçaria no ateliê InovArt</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://inovartdecor.com.br/assets/galeria-restauro.jpg</image:loc>
+      <image:title>Restauração de móveis antigos em São Paulo</image:title>
+      <image:caption>Remoção de grampos em móvel antigo durante a restauração</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://inovartdecor.com.br/assets/galeria-fabricacao.jpg</image:loc>
+      <image:title>Fabricação de móveis estofados sob medida</image:title>
+      <image:caption>Fabricação e estofamento de móvel sob medida na tapeçaria</image:caption>
+    </image:image>
+  </url>
+</urlset>

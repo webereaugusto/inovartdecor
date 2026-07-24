@@ -1,0 +1,4 @@
+# Cloudflare Pages / Netlify style redirects
+https://www.inovartdecor.com.br/*  https://inovartdecor.com.br/:splat  301!
+/2025/*  /  301
+/2025    /  301
