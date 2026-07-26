@@ -537,23 +537,14 @@
 
     const assembleCopy = assembleSection.querySelector(".assemble-copy");
     const COPY_REVEAL_AT = 0.5;
-    const ASSEMBLE_DONE_KEY = "inovart-assemble-done";
-    let assembleDone = false;
+    // Só trava nesta carga da página (sem sessionStorage).
+    // Sair e voltar ao site = animação de novo.
+    let assembleLocked = false;
     try {
-      assembleDone = sessionStorage.getItem(ASSEMBLE_DONE_KEY) === "1";
+      sessionStorage.removeItem("inovart-assemble-done");
     } catch {
-      assembleDone = false;
+      /* ignore */
     }
-
-    const markAssembleDone = () => {
-      if (assembleDone) return;
-      assembleDone = true;
-      try {
-        sessionStorage.setItem(ASSEMBLE_DONE_KEY, "1");
-      } catch {
-        /* private mode */
-      }
-    };
 
     const setCopyVisible = (visible) => {
       if (!assembleCopy) return;
@@ -577,13 +568,6 @@
     };
 
     const syncProgress = () => {
-      // Uma vez por visita: após completar, fica no frame final
-      if (assembleDone) {
-        showIndex(frameCount - 1);
-        setCopyVisible(true);
-        return;
-      }
-
       const rect = assembleSection.getBoundingClientRect();
       const vh = window.innerHeight;
       // Progresso 0 quando a section surge na base da tela;
@@ -591,12 +575,21 @@
       const start = vh;
       const end = -(assembleSection.offsetHeight - vh);
       const span = start - end;
-      const progress =
+      let progress =
         span <= 0 ? 0 : Math.min(1, Math.max(0, (start - rect.top) / span));
+
+      // Após completar uma vez nesta página, trava no frame final
+      // (não rebobina ao subir o scroll). Reload = libera de novo.
+      if (assembleLocked) {
+        progress = 1;
+      } else if (progress >= 0.99) {
+        assembleLocked = true;
+        progress = 1;
+      }
+
       const index = Math.round(progress * (frameCount - 1));
       showIndex(index);
       setCopyVisible(progress >= COPY_REVEAL_AT);
-      if (progress >= 0.98) markAssembleDone();
     };
 
     const onScroll = () => {
@@ -637,8 +630,8 @@
       }
       assembleSection.classList.add("is-ready");
       setCopyVisible(true);
-      markAssembleDone();
     } else {
+      // Manifest é opcional (file:// bloqueia fetch); defaults já cobrem 48 frames
       fetch(`${basePath}manifest.json`)
         .then((r) => (r.ok ? r.json() : null))
         .then((manifest) => {
@@ -652,17 +645,13 @@
         .catch(() => {})
         .finally(() => {
           resizeCanvas();
-          if (assembleDone) {
-            showIndex(frameCount - 1);
-            setCopyVisible(true);
-          } else {
-            showIndex(0);
-            window.addEventListener("scroll", onScroll, { passive: true });
-            window.addEventListener("resize", () => {
-              resizeCanvas();
-              syncProgress();
-            }, { passive: true });
-          }
+          showIndex(0);
+          syncProgress();
+          window.addEventListener("scroll", onScroll, { passive: true });
+          window.addEventListener("resize", () => {
+            resizeCanvas();
+            syncProgress();
+          }, { passive: true });
 
           if ("IntersectionObserver" in window) {
             const near = new IntersectionObserver(
@@ -677,12 +666,6 @@
             near.observe(assembleSection);
           } else {
             preloadWarm();
-          }
-
-          // Se já concluiu nesta visita, ainda precisa resize; se está no meio, sync
-          if (!assembleDone) syncProgress();
-          else {
-            window.addEventListener("resize", resizeCanvas, { passive: true });
           }
         });
     }
