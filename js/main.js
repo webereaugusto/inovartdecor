@@ -137,6 +137,27 @@
     });
   }
 
+  // Gallery filters
+  const galleryFilters = document.querySelectorAll(".gallery-filter");
+  const galleryItems = document.querySelectorAll(".gallery-grid .bento-item");
+  if (galleryFilters.length && galleryItems.length) {
+    galleryFilters.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const filter = btn.getAttribute("data-filter") || "todos";
+        galleryFilters.forEach((b) => {
+          const active = b === btn;
+          b.classList.toggle("is-active", active);
+          b.setAttribute("aria-selected", active ? "true" : "false");
+        });
+        galleryItems.forEach((item) => {
+          const cat = item.getAttribute("data-category");
+          const show = filter === "todos" || cat === filter;
+          item.classList.toggle("is-hidden", !show);
+        });
+      });
+    });
+  }
+
   // Lightbox
   const dialog = document.getElementById("lightbox");
   const dialogImg = document.getElementById("lightbox-img");
@@ -205,5 +226,12 @@
       });
     };
     window.addEventListener("scroll", onScroll, { passive: true });
+  }
+
+  // Pause hero background video when user prefers reduced motion
+  const heroVideo = document.querySelector(".hero-video");
+  if (heroVideo && reduceMotion) {
+    heroVideo.pause();
+    heroVideo.removeAttribute("autoplay");
   }
 })();
