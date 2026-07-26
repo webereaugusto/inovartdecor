@@ -710,6 +710,171 @@ h3 { font-size: clamp(1.2rem, 2.2vw, 1.5rem); }
   color: rgba(9, 9, 9, 0.42);
 }
 
+/* Montagem — scroll scrub de frames */
+.assemble {
+  position: relative;
+  height: 220vh;
+  background: #090909;
+  color: var(--sand);
+}
+.assemble-sticky {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #090909;
+}
+.assemble-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+.assemble-fallback {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+.assemble.is-ready .assemble-fallback { opacity: 0; }
+.assemble-veil {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.38);
+  pointer-events: none;
+}
+.assemble-veil::before,
+.assemble-veil::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+}
+.assemble-veil::before {
+  top: 0;
+  height: min(58%, 26rem);
+  background: linear-gradient(
+    to bottom,
+    #000 0%,
+    rgba(0, 0, 0, 0.88) 28%,
+    rgba(0, 0, 0, 0.45) 62%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+.assemble-veil::after {
+  bottom: 0;
+  height: min(52%, 22rem);
+  background: linear-gradient(
+    to top,
+    #000 0%,
+    rgba(0, 0, 0, 0.85) 30%,
+    rgba(0, 0, 0, 0.4) 65%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+.assemble-copy {
+  position: relative;
+  z-index: 3;
+  align-self: center;
+  justify-self: end;
+  width: min(26rem, calc(100% - 2.5rem));
+  max-width: min(26rem, calc(100% - 2.5rem));
+  margin: 0 clamp(1.25rem, 5vw, 3.5rem) 0 0;
+  padding: 0;
+  text-align: left;
+  background: none;
+  border: none;
+  box-shadow: none;
+  opacity: 0;
+  transform: translateX(1.25rem);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+  pointer-events: none;
+}
+.assemble-copy.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+.assemble-copy .eyebrow {
+  color: var(--gold-soft);
+  margin-bottom: 0.55rem;
+}
+.assemble-copy h2 {
+  margin: 0 0 0.65rem;
+  color: #fff;
+  font-size: clamp(1.45rem, 2.8vw, 2.15rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.65);
+}
+.assemble-copy > p:not(.eyebrow) {
+  margin: 0;
+  color: rgba(232, 219, 207, 0.82);
+  font-size: 1rem;
+  line-height: 1.55;
+  max-width: 34ch;
+  text-shadow: 0 1px 16px rgba(0, 0, 0, 0.55);
+}
+.assemble-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 1.15rem;
+  padding: 0.72rem 1.15rem;
+  border: 1px solid rgba(201, 164, 92, 0.55);
+  border-radius: 999px;
+  background: rgba(9, 9, 9, 0.35);
+  color: var(--gold-soft);
+  font-family: inherit;
+  font-size: 0.86rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(0.65rem);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
+  transition-delay: 0s;
+}
+.assemble-cta::after {
+  content: "→";
+  font-size: 1rem;
+  line-height: 1;
+  transition: transform 0.25s ease;
+}
+.assemble-copy.is-visible .assemble-cta {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.55s;
+}
+.assemble-cta:hover,
+.assemble-cta:focus-visible {
+  background: rgba(201, 164, 92, 0.14);
+  border-color: rgba(216, 185, 120, 0.85);
+  color: #f0e2c4;
+  outline: none;
+}
+.assemble-cta:hover::after,
+.assemble-cta:focus-visible::after {
+  transform: translateX(3px);
+}
+
 /* Services index */
 .services { position: relative; }
 .service-index { border-top: 1px solid rgba(232, 219, 207, 0.12); }
@@ -1421,6 +1586,187 @@ h3 { font-size: clamp(1.2rem, 2.2vw, 1.5rem); }
   line-height: 1;
 }
 
+/* Project gallery modal */
+.project-gallery {
+  border: 0;
+  padding: 0;
+  width: min(96vw, 1120px);
+  max-width: 1120px;
+  background: transparent;
+  color: var(--sand);
+}
+.project-gallery::backdrop {
+  background: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(10px);
+}
+.project-gallery-shell {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1rem, 2.5vw, 1.5rem);
+  border: 1px solid rgba(232, 219, 207, 0.12);
+  border-radius: 1.25rem;
+  background:
+    linear-gradient(160deg, rgba(24, 20, 18, 0.96), rgba(9, 9, 9, 0.94));
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+}
+.project-gallery-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.project-gallery-head .eyebrow {
+  color: var(--gold-soft);
+  margin-bottom: 0.35rem;
+}
+.project-gallery-head h2 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+.project-gallery-close {
+  flex: 0 0 auto;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid rgba(232, 219, 207, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
+  font-size: 1.55rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.project-gallery-close:hover,
+.project-gallery-close:focus-visible {
+  background: rgba(201, 164, 92, 0.16);
+  border-color: rgba(201, 164, 92, 0.5);
+  outline: none;
+}
+.project-gallery-stage {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: min(62vh, 560px);
+}
+.project-gallery-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.85rem;
+  background: #050505;
+  aspect-ratio: 16 / 9;
+  max-height: min(62vh, 560px);
+}
+.project-gallery-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.35s ease, transform 0.45s ease;
+  user-select: none;
+  -webkit-user-drag: none;
+  touch-action: pan-y;
+}
+.project-gallery-frame img.is-swap {
+  opacity: 0;
+  transform: scale(0.985);
+}
+.project-gallery-nav {
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid rgba(232, 219, 207, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  font-size: 1.85rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+.project-gallery-nav:hover,
+.project-gallery-nav:focus-visible {
+  background: rgba(201, 164, 92, 0.18);
+  border-color: rgba(201, 164, 92, 0.55);
+  outline: none;
+  transform: scale(1.04);
+}
+.project-gallery-foot {
+  display: grid;
+  gap: 0.75rem;
+}
+.project-gallery-caption {
+  margin: 0;
+  color: rgba(232, 219, 207, 0.78);
+  font-size: 0.95rem;
+  min-height: 1.4em;
+}
+.project-gallery-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.project-gallery-dots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+.project-gallery-dots button {
+  width: 0.55rem;
+  height: 0.55rem;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(232, 219, 207, 0.28);
+  cursor: pointer;
+  transition: width 0.25s ease, background 0.25s ease;
+}
+.project-gallery-dots button[aria-current="true"] {
+  width: 1.35rem;
+  background: var(--gold-soft);
+}
+.project-gallery-counter {
+  margin: 0;
+  color: rgba(232, 219, 207, 0.55);
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  font-variant-numeric: tabular-nums;
+}
+@media (max-width: 720px) {
+  .project-gallery-stage {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    min-height: 0;
+  }
+  .project-gallery-frame {
+    order: 1;
+    max-height: 48vh;
+  }
+  .project-gallery-nav {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .project-gallery-stage {
+    position: relative;
+  }
+  .project-gallery-nav.is-prev { left: 0.5rem; }
+  .project-gallery-nav.is-next { right: 0.5rem; }
+  .project-gallery-nav:hover,
+  .project-gallery-nav:focus-visible {
+    transform: translateY(-50%) scale(1.04);
+  }
+  .project-gallery-meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
 /* Reveal */
 .reveal {
   opacity: 0;
@@ -1459,6 +1805,20 @@ h3 { font-size: clamp(1.2rem, 2.2vw, 1.5rem); }
     background:
       center / cover no-repeat url("../assets/galeria/sofa-03.webp"),
       var(--ink);
+  }
+  .assemble {
+    height: 100svh;
+  }
+  .assemble-canvas { display: none; }
+  .assemble.is-ready .assemble-fallback,
+  .assemble-fallback {
+    opacity: 1 !important;
+    object-fit: cover;
+  }
+  .assemble-copy {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
   }
   .hero-media img,
   .whatsapp-float,

@@ -1,0 +1,41 @@
+{
+  "title": "Assento de Fusca",
+  "images": [
+    {
+      "src": "assets/fusca/fusca-01.webp",
+      "alt": "Poltrona com assento de Fusca — vista frontal"
+    },
+    {
+      "src": "assets/fusca/fusca-02.webp",
+      "alt": "Poltrona Fusca — vista lateral"
+    },
+    {
+      "src": "assets/fusca/fusca-03.webp",
+      "alt": "Poltrona Fusca — ângulo especial"
+    },
+    {
+      "src": "assets/fusca/fusca-04.webp",
+      "alt": "Poltrona Fusca — revelando detalhes à esquerda"
+    },
+    {
+      "src": "assets/fusca/fusca-05.webp",
+      "alt": "Poltrona Fusca — revelando detalhes à direita"
+    },
+    {
+      "src": "assets/fusca/fusca-06.webp",
+      "alt": "Poltrona Fusca — detalhe da base e ambiente"
+    },
+    {
+      "src": "assets/fusca/fusca-07.webp",
+      "alt": "Poltrona Fusca — nova perspectiva"
+    },
+    {
+      "src": "assets/fusca/fusca-08.webp",
+      "alt": "Poltrona Fusca — close do acabamento"
+    },
+    {
+      "src": "assets/fusca/fusca-09.webp",
+      "alt": "Poltrona Fusca — macro da textura"
+    }
+  ]
+}

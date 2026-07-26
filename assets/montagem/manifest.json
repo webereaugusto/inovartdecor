@@ -1,0 +1,10 @@
+{
+  "frames": 48,
+  "prefix": "frame-",
+  "ext": "webp",
+  "pad": 3,
+  "width": 1280,
+  "height": 720,
+  "skipSeconds": 4,
+  "quality": 90
+}

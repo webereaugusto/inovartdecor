@@ -337,6 +337,7 @@
         <ul>
           <li><a href="#sobre">Ateliê</a></li>
           <li><a href="#galeria">Galeria</a></li>
+          <li><a href="#montagem">Ofício</a></li>
           <li><a href="#servicos">Serviços</a></li>
           <li><a href="#especialidades">Especialidades</a></li>
           <li><a href="#processo">Processo</a></li>
@@ -995,6 +996,23 @@
       </div>
     </section>
 
+    <!-- MONTAGEM / OFÍCIO — scroll scrub -->
+    <section class="assemble" id="montagem" aria-labelledby="montagem-title">
+      <div class="assemble-sticky">
+        <canvas class="assemble-canvas" width="1280" height="720" aria-hidden="true"></canvas>
+        <img class="assemble-fallback" src="assets/montagem/frame-001.webp" alt="Poltrona em vista explodida se montando peça a peça" width="1280" height="720" loading="lazy" decoding="async" fetchpriority="low">
+        <div class="assemble-veil" aria-hidden="true"></div>
+        <div class="assemble-copy">
+          <p class="eyebrow">Ofício</p>
+          <h2 id="montagem-title">Faça seu projeto exclusivo — o limite é a imaginação</h2>
+          <p>Esse foi um projeto com assento de Fusca.</p>
+          <button type="button" class="assemble-cta" data-project-gallery="assets/fusca/manifest.json" aria-haspopup="dialog">
+            Veja mais sobre esse projeto
+          </button>
+        </div>
+      </div>
+    </section>
+
     <!-- SERVIÇOS -->
     <section class="section services" id="servicos" aria-labelledby="servicos-title" data-theme="dark">
       <div class="container">
@@ -1597,6 +1615,7 @@
         <ul>
           <li><a href="#sobre">Ateliê</a></li>
           <li><a href="#galeria">Galeria</a></li>
+          <li><a href="#montagem">Ofício</a></li>
           <li><a href="#servicos">Serviços</a></li>
           <li><a href="#faq">FAQ</a></li>
           <li><a href="#contato">Contato</a></li>
@@ -1635,6 +1654,36 @@
   <dialog class="lightbox" id="lightbox" aria-label="Visualização da imagem">
     <button type="button" class="lightbox-close" aria-label="Fechar">&times;</button>
     <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" id="lightbox-img" width="1" height="1">
+  </dialog>
+
+  <dialog class="project-gallery" id="project-gallery" aria-labelledby="project-gallery-title">
+    <div class="project-gallery-shell">
+      <header class="project-gallery-head">
+        <div>
+          <p class="eyebrow">Projeto</p>
+          <h2 id="project-gallery-title">Assento de Fusca</h2>
+        </div>
+        <button type="button" class="project-gallery-close" aria-label="Fechar galeria">&times;</button>
+      </header>
+      <div class="project-gallery-stage">
+        <button type="button" class="project-gallery-nav is-prev" aria-label="Foto anterior">
+          <span aria-hidden="true">‹</span>
+        </button>
+        <div class="project-gallery-frame">
+          <img id="project-gallery-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" width="1600" height="900" decoding="async">
+        </div>
+        <button type="button" class="project-gallery-nav is-next" aria-label="Próxima foto">
+          <span aria-hidden="true">›</span>
+        </button>
+      </div>
+      <footer class="project-gallery-foot">
+        <p class="project-gallery-caption" id="project-gallery-caption"></p>
+        <div class="project-gallery-meta">
+          <div class="project-gallery-dots" id="project-gallery-dots" role="tablist" aria-label="Fotos do projeto"></div>
+          <p class="project-gallery-counter" id="project-gallery-counter" aria-live="polite">1 / 1</p>
+        </div>
+      </footer>
+    </div>
   </dialog>
 
   <script src="js/main.js" defer></script>

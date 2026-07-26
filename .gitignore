@@ -3,6 +3,8 @@ doc/InovArt - */
 imagens/
 galeria_real/
 automotivo/
+/fusca/
+/dono/
 
 doc/*.html
 _*.py
