@@ -137,24 +137,53 @@
     });
   }
 
-  // Gallery filters
+  // Gallery filters + progressive reveal
   const galleryFilters = document.querySelectorAll(".gallery-filter");
-  const galleryItems = document.querySelectorAll(".gallery-grid .bento-item");
+  const galleryItems = [...document.querySelectorAll(".gallery-grid .bento-item")];
+  const galleryMore = document.getElementById("gallery-more");
+  let galleryExpanded = false;
+  let activeGalleryFilter = "todos";
+
+  const syncGalleryVisibility = () => {
+    const grid = document.querySelector(".gallery-grid");
+    galleryItems.forEach((item) => {
+      const cat = item.getAttribute("data-category");
+      const match = activeGalleryFilter === "todos" || cat === activeGalleryFilter;
+      const isMore = item.classList.contains("is-gallery-more");
+      const show =
+        match &&
+        (galleryExpanded || activeGalleryFilter !== "todos" || !isMore);
+      item.classList.toggle("is-hidden", !show);
+    });
+    if (grid) grid.classList.toggle("is-expanded", galleryExpanded || activeGalleryFilter !== "todos");
+    if (galleryMore) {
+      const hasMore = galleryItems.some((item) => item.classList.contains("is-gallery-more"));
+      const showBtn = activeGalleryFilter === "todos" && hasMore && !galleryExpanded;
+      galleryMore.hidden = !showBtn;
+      galleryMore.setAttribute("aria-expanded", galleryExpanded ? "true" : "false");
+    }
+  };
+
   if (galleryFilters.length && galleryItems.length) {
+    syncGalleryVisibility();
     galleryFilters.forEach((btn) => {
       btn.addEventListener("click", () => {
-        const filter = btn.getAttribute("data-filter") || "todos";
+        activeGalleryFilter = btn.getAttribute("data-filter") || "todos";
         galleryFilters.forEach((b) => {
           const active = b === btn;
           b.classList.toggle("is-active", active);
           b.setAttribute("aria-selected", active ? "true" : "false");
         });
-        galleryItems.forEach((item) => {
-          const cat = item.getAttribute("data-category");
-          const show = filter === "todos" || cat === filter;
-          item.classList.toggle("is-hidden", !show);
-        });
+        if (activeGalleryFilter !== "todos") galleryExpanded = true;
+        syncGalleryVisibility();
       });
+    });
+  }
+
+  if (galleryMore) {
+    galleryMore.addEventListener("click", () => {
+      galleryExpanded = true;
+      syncGalleryVisibility();
     });
   }
 
@@ -228,10 +257,53 @@
     window.addEventListener("scroll", onScroll, { passive: true });
   }
 
-  // Pause hero background video when user prefers reduced motion
+  // Background videos: reduced motion + invite play-on-view
   const heroVideo = document.querySelector(".hero-video");
-  if (heroVideo && reduceMotion) {
-    heroVideo.pause();
-    heroVideo.removeAttribute("autoplay");
+  const inviteVideo = document.querySelector(".invite-video");
+
+  if (reduceMotion) {
+    [heroVideo, inviteVideo].forEach((video) => {
+      if (!video) return;
+      video.pause();
+      video.removeAttribute("autoplay");
+    });
+  } else if (inviteVideo) {
+    const playInvite = () => {
+      const p = inviteVideo.play();
+      if (p && typeof p.catch === "function") p.catch(() => {});
+    };
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              playInvite();
+              io.disconnect();
+            }
+          });
+        },
+        { rootMargin: "120px 0px", threshold: 0.15 }
+      );
+      io.observe(inviteVideo.closest(".project-invite") || inviteVideo);
+    } else {
+      playInvite();
+    }
+  }
+
+  // Hero: load source after idle so poster wins LCP
+  if (heroVideo && !reduceMotion) {
+    const kickHero = () => {
+      if (heroVideo.preload === "none") {
+        heroVideo.preload = "metadata";
+        heroVideo.load();
+      }
+      const p = heroVideo.play();
+      if (p && typeof p.catch === "function") p.catch(() => {});
+    };
+    if ("requestIdleCallback" in window) {
+      requestIdleCallback(kickHero, { timeout: 1800 });
+    } else {
+      setTimeout(kickHero, 400);
+    }
   }
 })();

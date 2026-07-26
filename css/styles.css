@@ -947,6 +947,16 @@ h3 { font-size: clamp(1.2rem, 2.2vw, 1.5rem); }
 .bento-item.is-hidden {
   display: none;
 }
+.gallery-grid:not(.is-expanded) .bento-item.is-gallery-more {
+  display: none;
+}
+.gallery-more {
+  grid-column: 1 / -1;
+  justify-self: center;
+  margin-top: 0.75rem;
+  min-width: min(100%, 16rem);
+}
+.gallery-more[hidden] { display: none !important; }
 
 /* Gallery bento (legacy helpers) */
 .bento {
@@ -1239,6 +1249,61 @@ h3 { font-size: clamp(1.2rem, 2.2vw, 1.5rem); }
   margin-bottom: 1.75rem;
 }
 
+/* Convite final — vídeo em loop */
+.project-invite {
+  position: relative;
+  min-height: min(78svh, 720px);
+  display: grid;
+  align-items: center;
+  overflow: hidden;
+  background: var(--ink);
+  color: var(--sand);
+  padding: clamp(4.5rem, 10vw, 7.5rem) 0;
+  text-align: center;
+}
+.invite-media-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.invite-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.invite-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(9, 9, 9, 0.72) 0%, rgba(9, 9, 9, 0.58) 45%, rgba(9, 9, 9, 0.78) 100%),
+    radial-gradient(800px 480px at 50% 40%, rgba(132, 80, 48, 0.18), transparent 65%),
+    rgba(9, 9, 9, 0.3);
+}
+.invite-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 38rem;
+  margin-inline: auto;
+}
+.project-invite .eyebrow { color: var(--gold-soft); }
+.project-invite h2 {
+  color: #fff;
+  margin: 0 0 1rem;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+.invite-lead {
+  margin: 0 0 1.85rem;
+  color: rgba(232, 219, 207, 0.78);
+  font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+  line-height: 1.65;
+}
+
 /* Contact */
 .contact-grid {
   display: grid;
@@ -1264,32 +1329,40 @@ h3 { font-size: clamp(1.2rem, 2.2vw, 1.5rem); }
   filter: grayscale(0.25) contrast(1.05);
 }
 
-/* Footer */
+/* Footer — mesmo fundo sand do header */
 .site-footer {
-  background: var(--ink);
-  color: rgba(232, 219, 207, 0.7);
+  background: var(--sand);
+  color: var(--muted);
   padding-top: 3.5rem;
+  border-top: 1px solid rgba(9, 9, 9, 0.08);
 }
-.site-footer a { color: #fff; text-decoration: none; }
+.site-footer a {
+  color: var(--ink);
+  text-decoration: none;
+  transition: color 0.25s;
+}
 .site-footer a:hover { color: var(--brand); }
 .site-footer img { margin-bottom: 1rem; }
+.site-footer p { color: var(--muted); }
 .footer-grid {
   display: grid;
   gap: 2rem;
   padding-bottom: 2.5rem;
 }
 .footer-grid h3 {
-  color: #fff;
+  color: var(--ink);
   font-size: 0.95rem;
   margin-bottom: 0.85rem;
 }
 .footer-grid ul { display: grid; gap: 0.4rem; }
 .footer-bottom {
-  border-top: 1px solid rgba(232, 219, 207, 0.1);
+  border-top: 1px solid rgba(9, 9, 9, 0.1);
   padding: 1.1rem 0;
   font-size: 0.875rem;
 }
-.footer-bottom p { margin: 0; color: rgba(232, 219, 207, 0.45); }
+.footer-bottom p { margin: 0; color: rgba(9, 9, 9, 0.48); }
+.footer-bottom a { color: var(--ink); }
+.footer-bottom a:hover { color: var(--brand); }
 
 /* WhatsApp float */
 .whatsapp-float {
@@ -1375,10 +1448,16 @@ h3 { font-size: clamp(1.2rem, 2.2vw, 1.5rem); }
     animation: none;
     transition: none;
   }
-  .hero-video { display: none; }
+  .hero-video,
+  .invite-video { display: none; }
   .hero-media-bg {
     background:
-      center / cover no-repeat url("../assets/galeria/sofa-06.jpg"),
+      center / cover no-repeat url("../assets/galeria/sofa-06.webp"),
+      var(--ink);
+  }
+  .invite-media-bg {
+    background:
+      center / cover no-repeat url("../assets/galeria/sofa-03.webp"),
       var(--ink);
   }
   .hero-media img,
@@ -1600,4 +1679,17 @@ h3 { font-size: clamp(1.2rem, 2.2vw, 1.5rem); }
     align-items: start;
     gap: 2.5rem;
   }
+}
+
+
+.service-steps {
+  margin: 1.25rem 0 1.75rem;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.65rem;
+}
+.service-steps li { color: var(--ink-2); line-height: 1.55; }
+.service-copy h2 {
+  margin: 1.75rem 0 0.75rem;
+  font-size: clamp(1.25rem, 2.5vw, 1.55rem);
 }

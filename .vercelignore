@@ -1,0 +1,11 @@
+# Fontes brutas / não usadas em produção
+dono/
+galeria_real/
+automotivo/
+.firecrawl/
+doc/
+imagens/
+
+# Scripts auxiliares locais
+_*.py
+*.tmp.mp4

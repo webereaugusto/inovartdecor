@@ -1,5 +1,8 @@
 ﻿.firecrawl/
 doc/InovArt - */
 imagens/
+galeria_real/
+automotivo/
 
 doc/*.html
+_*.py
