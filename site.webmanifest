@@ -5,8 +5,8 @@
   "lang": "pt-BR",
   "start_url": "/",
   "display": "browser",
-  "background_color": "#e8dbcf",
-  "theme_color": "#751717",
+  "background_color": "#090909",
+  "theme_color": "#090909",
   "icons": [
     {
       "src": "assets/logo-brand.png",
