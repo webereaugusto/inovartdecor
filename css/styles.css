@@ -1786,6 +1786,8 @@ h3 { font-size: clamp(1.2rem, 2.2vw, 1.5rem); }
 }
 .reveal-clip.is-visible { clip-path: inset(0 0 0 0); }
 
+/* Testadores: se vídeos/animação parecerem estáticos, desligar
+   "Reduzir movimento" / Animation effects no SO — este bloco é proposital. */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal, .hero-anim, .hero-mask .hero-anim {

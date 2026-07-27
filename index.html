@@ -353,9 +353,9 @@
     <!-- HERO -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-media-bg" aria-hidden="true">
-        <video class="hero-video" muted loop playsinline
+        <video class="hero-video" muted loop playsinline autoplay
           poster="assets/galeria/sofa-06.webp"
-          preload="none">
+          preload="metadata">
           <source src="video/video.mp4" type="video/mp4">
         </video>
       </div>
@@ -1000,12 +1000,12 @@
     <section class="assemble" id="montagem" aria-labelledby="montagem-title">
       <div class="assemble-sticky">
         <canvas class="assemble-canvas" width="1280" height="720" aria-hidden="true"></canvas>
-        <img class="assemble-fallback" src="assets/montagem/frame-001.webp" alt="Poltrona em vista explodida se montando peça a peça" width="1280" height="720" loading="lazy" decoding="async" fetchpriority="low">
+        <img class="assemble-fallback" src="assets/montagem/frame-001.webp" alt="Poltrona em vista explodida se montando peça a peça" width="1280" height="720" loading="eager" decoding="async">
         <div class="assemble-veil" aria-hidden="true"></div>
         <div class="assemble-copy">
           <p class="eyebrow">Ofício</p>
           <h2 id="montagem-title">Faça seu projeto exclusivo — o limite é a imaginação</h2>
-          <p>Esse foi um projeto com assento de Fusca.</p>
+          <p>Esse foi um projeto com assento de Fusca — role para ver a montagem.</p>
           <button type="button" class="assemble-cta" data-project-gallery="assets/fusca/manifest.json" aria-haspopup="dialog">
             Veja mais sobre esse projeto
           </button>
@@ -1588,7 +1588,7 @@
     <!-- CONVITE FINAL COM VÍDEO -->
     <section class="section project-invite" id="projeto" aria-labelledby="invite-title">
       <div class="invite-media-bg" aria-hidden="true">
-        <video class="invite-video" muted loop playsinline preload="none"
+        <video class="invite-video" muted loop playsinline autoplay preload="metadata"
           poster="assets/galeria/sofa-03.webp"
           data-autoplay-on-view>
           <source src="video/invite.mp4" type="video/mp4">

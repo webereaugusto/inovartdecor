@@ -434,54 +434,90 @@
     window.addEventListener("scroll", onScroll, { passive: true });
   }
 
-  // Background videos: reduced motion + invite play-on-view
+  // Background videos: reduced motion + resilient play
   const heroVideo = document.querySelector(".hero-video");
   const inviteVideo = document.querySelector(".invite-video");
 
+  const tryPlayVideo = (video, label) => {
+    if (!video) return Promise.resolve(false);
+    video.muted = true;
+    const p = video.play();
+    if (p && typeof p.then === "function") {
+      return p
+        .then(() => true)
+        .catch((err) => {
+          console.warn(`[InovArt] ${label} play falhou:`, err && err.message ? err.message : err);
+          return false;
+        });
+    }
+    return Promise.resolve(!video.paused);
+  };
+
+  const armPlayRetryOnGesture = (videos) => {
+    const pending = videos.filter(Boolean);
+    if (!pending.length) return;
+    const retry = () => {
+      pending.forEach((video) => {
+        if (video.paused) tryPlayVideo(video, video.className || "video");
+      });
+      window.removeEventListener("pointerdown", retry);
+      window.removeEventListener("touchstart", retry);
+      window.removeEventListener("keydown", retry);
+    };
+    window.addEventListener("pointerdown", retry, { passive: true, once: true });
+    window.addEventListener("touchstart", retry, { passive: true, once: true });
+    window.addEventListener("keydown", retry, { passive: true, once: true });
+  };
+
   if (reduceMotion) {
+    // Acessibilidade: CSS já troca por imagem estática; não forçar animação
     [heroVideo, inviteVideo].forEach((video) => {
       if (!video) return;
       video.pause();
       video.removeAttribute("autoplay");
     });
-  } else if (inviteVideo) {
-    const playInvite = () => {
-      const p = inviteVideo.play();
-      if (p && typeof p.catch === "function") p.catch(() => {});
-    };
-    if ("IntersectionObserver" in window) {
-      const io = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              playInvite();
-              io.disconnect();
-            }
-          });
-        },
-        { rootMargin: "120px 0px", threshold: 0.15 }
-      );
-      io.observe(inviteVideo.closest(".project-invite") || inviteVideo);
-    } else {
-      playInvite();
-    }
-  }
-
-  // Hero: load source after idle so poster wins LCP
-  if (heroVideo && !reduceMotion) {
-    const kickHero = () => {
-      if (heroVideo.preload === "none") {
-        heroVideo.preload = "metadata";
-        heroVideo.load();
+  } else {
+    if (heroVideo) {
+      const kickHero = () => tryPlayVideo(heroVideo, "hero");
+      if ("requestIdleCallback" in window) {
+        requestIdleCallback(kickHero, { timeout: 900 });
+      } else {
+        setTimeout(kickHero, 200);
       }
-      const p = heroVideo.play();
-      if (p && typeof p.catch === "function") p.catch(() => {});
-    };
-    if ("requestIdleCallback" in window) {
-      requestIdleCallback(kickHero, { timeout: 1800 });
-    } else {
-      setTimeout(kickHero, 400);
     }
+
+    if (inviteVideo) {
+      const playInvite = () => {
+        if (inviteVideo.preload === "none") {
+          inviteVideo.preload = "metadata";
+        }
+        try {
+          inviteVideo.load();
+        } catch {
+          /* ignore */
+        }
+        tryPlayVideo(inviteVideo, "invite");
+      };
+      if ("IntersectionObserver" in window) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                playInvite();
+                io.disconnect();
+              }
+            });
+          },
+          { rootMargin: "160px 0px", threshold: 0.1 }
+        );
+        io.observe(inviteVideo.closest(".project-invite") || inviteVideo);
+      } else {
+        playInvite();
+      }
+    }
+
+    // Se autoplay for bloqueado, retoma no primeiro gesto do usuário
+    armPlayRetryOnGesture([heroVideo, inviteVideo]);
   }
 
   // Montagem: scroll-scrubbed WebP frame sequence
