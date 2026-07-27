@@ -478,12 +478,14 @@
     });
   } else {
     if (heroVideo) {
-      const kickHero = () => tryPlayVideo(heroVideo, "hero");
-      if ("requestIdleCallback" in window) {
-        requestIdleCallback(kickHero, { timeout: 900 });
-      } else {
-        setTimeout(kickHero, 200);
-      }
+      const revealHero = () => heroVideo.classList.add("is-ready");
+      // Só revela quando há frame real — evita flash do poster/estático
+      heroVideo.addEventListener("loadeddata", revealHero, { once: true });
+      heroVideo.addEventListener("playing", revealHero, { once: true });
+      // Kick imediato (sem idle) para encurtar fundo preto
+      tryPlayVideo(heroVideo, "hero").then((ok) => {
+        if (ok && heroVideo.readyState >= 2) revealHero();
+      });
     }
 
     if (inviteVideo) {
